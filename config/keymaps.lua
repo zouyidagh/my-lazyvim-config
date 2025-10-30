@@ -5,32 +5,33 @@
 local map = vim.keymap.set
 
 -- Insert mode mappings
--- jj to escape (like VSCode Vim config)
-map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+-- jj to escape
+map("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
 
 -- Clear search highlighting
-map("n", "<C-n>", ":nohl<CR>", { desc = "Clear search highlighting", silent = true })
+map("n", "<C-n>", ":nohl<CR>", { desc = "Clear Search Highlighting", silent = true })
 
--- Tab/Buffer control
+-- Buffer control
 -- LazyVim uses buffers instead of tabs, mapping to buffer operations
-map("n", "<leader>tn", "<cmd>enew<CR>", { desc = "New buffer" })
-map("n", "<leader>to", "<cmd>only<CR>", { desc = "Close other windows" })
-map("n", "<leader>th", "<cmd>bfirst<CR>", { desc = "First buffer" })
-map("n", "<leader>tj", "<cmd>BufferLineMovePrev<CR>", { desc = "Move buffer left" })
-map("n", "<leader>tk", "<cmd>BufferLineMoveNext<CR>", { desc = "Move buffer right" })
-map("n", "<leader>tl", "<cmd>blast<CR>", { desc = "Last buffer" })
+map("n", "<leader>tt", "<cmd>BufferLineTogglePin<CR>", { desc = "Toggle Pin Buffer" })
+map("n", "<leader>tn", "<cmd>enew<CR>", { desc = "New Buffer" })
+map("n", "<leader>to", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
+map("n", "<leader>th", "<cmd>bfirst<CR>", { desc = "First Buffer" })
+map("n", "<leader>tj", "<cmd>BufferLineMovePrev<CR>", { desc = "Move Buffer Left" })
+map("n", "<leader>tk", "<cmd>BufferLineMoveNext<CR>", { desc = "Move Buffer Right" })
+map("n", "<leader>tl", "<cmd>blast<CR>", { desc = "Last Buffer" })
 
 -- Navigate between buffers (H/L for prev/next)
-map("n", "H", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
-map("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "H", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+map("n", "L", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 
 -- Stronger J/K for half-page scrolling
-map("n", "J", "<C-d>", { desc = "Scroll down half page" })
-map("n", "K", "<C-u>", { desc = "Scroll up half page" })
+map("n", "J", "<C-d>", { desc = "Scroll Down Half Page" })
+map("n", "K", "<C-u>", { desc = "Scroll Up Half Page" })
 
 -- Jump history
-map("n", "<leader>i", "<C-i>", { desc = "Jump forward" })
-map("n", "<leader>o", "<C-o>", { desc = "Jump backward" })
+map("n", "<leader>i", "<C-i>", { desc = "Jump Forward" })
+map("n", "<leader>o", "<C-o>", { desc = "Jump Backward" })
 
 -- Toggle terminal (Change LazyVim default Ctrl-\)
 map("n", "<leader>/", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
