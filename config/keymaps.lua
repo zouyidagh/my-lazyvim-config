@@ -34,5 +34,4 @@ map("n", "<leader>i", "<C-i>", { desc = "Jump Forward" })
 map("n", "<leader>o", "<C-o>", { desc = "Jump Backward" })
 
 -- Toggle terminal (Change LazyVim default Ctrl-\)
-map("n", "<leader>/", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
-map("t", "<leader>/", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
+map({"n","t"}, "<leader>/",function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
