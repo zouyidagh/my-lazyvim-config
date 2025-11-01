@@ -4,9 +4,16 @@
 
 local map = vim.keymap.set
 
--- Insert mode mappings
 -- jj to escape
 map("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
+
+-- Ctrl-C to copy
+map("i", "<C-c>", "<Esc>yya", { desc = "Copy Line" })
+map({"n","v"}, "<C-c>", '"+y', { desc = "Copy to Clipboard" })
+
+-- Ctrl-V to paste
+map("i", "<C-v>", "<C-r>+", { desc = "Paste from Clipboard" })
+map({"n","v"}, "<C-v>", '"+p', { desc = "Paste from Clipboard" })
 
 -- Clear search highlighting
 map("n", "<C-n>", ":nohl<CR>", { desc = "Clear Search Highlighting", silent = true })
