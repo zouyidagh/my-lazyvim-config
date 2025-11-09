@@ -28,10 +28,6 @@ map("n", "<leader>tj", "<cmd>BufferLineMovePrev<CR>", { desc = "Move Buffer Left
 map("n", "<leader>tk", "<cmd>BufferLineMoveNext<CR>", { desc = "Move Buffer Right" })
 map("n", "<leader>tl", "<cmd>blast<CR>", { desc = "Last Buffer" })
 
--- Navigate between buffers (H/L for prev/next)
-map("n", "H", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
-map("n", "L", "<cmd>bnext<CR>", { desc = "Next Buffer" })
-
 -- Stronger J/K for half-page scrolling
 map("n", "J", "<C-d>", { desc = "Scroll Down Half Page" })
 map("n", "K", "<C-u>", { desc = "Scroll Up Half Page" })
